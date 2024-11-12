@@ -29,8 +29,24 @@ function showCart(cart) {
 
   recentItems.forEach((cartitem) => {
     console.log(cartitem);
-    const { cart_id, courses_id, quantity, date_added, status } = cartitem;
-
+    const {
+      cart_id,
+      courses_id,
+      quantity,
+      date_added,
+      status,
+      source,
+      image,
+      courselink,
+      coursename,
+      description,
+      duration,
+      scores,
+      rating,
+      ratingimage,
+      ratingnumber,
+    } = cartitem;
+    const Rating = [rating, ratingimage, ratingnumber];
     const cartEl = document.createElement("div");
 
     cartEl.classList.add("cartitem");
@@ -38,39 +54,45 @@ function showCart(cart) {
     cartEl.innerHTML = `
         
           <div class="cart-list-container">
-  
-           
-            <div class="course-module">
-              <div class="course-card">
-                <div class="course-card-img-container">
-                 
-         </div>
-  
-                <div class="course-card-main-content">
-               cart Id:${cart_id}
-                    <h3>course Id:${courses_id}</h3>
-                  </a>
-                  <h4>
-                   Quantity:${quantity}
-                  </h4>
-                  <div class="course-card-instructor">
-                    
-                  <div class="starrating">
-               
-                    <span class="numbers">Date:${date_added}</span>
-                    <div class="levels">
-                      Status:${status}
-             
-   
-                  
-                </div>
 
-             
-              </div>
-            </div>
-          </div>
-        
-      `;
+<div class="course-module">
+<div class="course-card">
+<div class="course-card-img-container">
+<img src="${image}"/>
+</div>
+
+<div class="course-card-main-content">
+<h3>cart Id :${cart_id}<h3>
+<h3>Courses Id :${courses_id}<h3>
+<h3>Quantity : ${quantity}<h3>
+<h3>Date :${date_added}<h3>
+<h3>Status :${status}<h3>
+<a href="${courselink}">
+<h3>${coursename}</h3>
+</a>
+<h4>
+${description}
+</h4>
+<div class="course-card-instructor">
+The <strong>Net</strong>
+<strong>Ninja</strong> (Shaun pelling)
+</div>
+<div class="starrating">
+<span class="point">${Rating[0]}</span>
+<img src="${Rating[1]}" />
+<span class="numbers">${Rating[2]}</span>
+<div class="levels">
+${duration}
+</div>
+<span class="highest">${scores}</span>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+`;
 
     cartList.appendChild(cartEl);
   });

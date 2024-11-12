@@ -1837,6 +1837,21 @@
       height: 64px;
     }
   }
+
+  .cart-card-img-container img {
+    display: block;
+    transition: opacity linear 100ms;
+    margin-right: ;
+    width: 140px;
+    height: 105px;
+  }
+  @media screen and (max-width: 425px) {
+    
+    .cart-card-img-container img {
+      width: 34px;
+      height: 34px;
+    }
+  }
   
   
   
